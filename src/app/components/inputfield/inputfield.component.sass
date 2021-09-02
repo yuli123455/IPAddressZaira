@@ -1,0 +1,32 @@
+@import '../../../styles.sass'
+
+.input-group
+    margin-top: 1em
+
+.inputValue
+    color: $veryDarkGray
+    border-radius: 10px
+    font-size: 18px
+    font-family: "Rubik"
+
+::placeholder 
+    color: $darkGray
+    opacity: 0.8
+    font-size: 16px
+    font-family: "Rubik"
+
+span
+    color: $title-color 
+    border-radius: 10px 
+    background-color: $veryDarkGray 
+    border: solid
+    border-color: $veryDarkGray
+    padding-right: 3px
+    padding-top: 3px
+    display: inline-block
+    width: 40px
+    cursor: pointer
+
+@media only screen and (max-width: 375px) 
+    ::placeholder 
+        font-size: 12px

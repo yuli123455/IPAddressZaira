@@ -1,0 +1,22 @@
+<div *ngIf="!dataLocation" class="divDetail text-center divDetailValues">
+    <span>No information to display</span>
+</div>
+
+<div *ngIf="dataLocation" class="input-group divDetail">
+        <div  class="col-md-3 col-sm-12 divDetailValues">
+            <span>IP ADDRESS</span>
+            <p>{{dataLocation.ip}}</p>
+        </div>
+        <div class="col-md-3 col-sm-12 divDetailValues divDetailBorder">
+            <span>LOCATION</span>
+            <p>{{dataLocation.location.region}}</p>
+        </div>
+        <div class="col-md-3 col-sm-12 divDetailValues divDetailBorder">
+            <span>TIMEZONE</span>
+            <p>{{dataLocation.location.timezone}}</p>
+        </div>
+        <div class="col-md-3 col-sm-12 divDetailValues divDetailBorder">
+            <span>ISP</span>
+            <p>{{dataLocation.isp}}</p>
+        </div>
+</div>

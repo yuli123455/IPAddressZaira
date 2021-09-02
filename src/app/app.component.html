@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="imageBackground">
+    <h1 class="text-center">IP Address Tracker</h1>
+    <div class="divLayout d-flex justify-content-center">
+      <div class="col-md-4 col-sm-10">
+        <app-inputfield (ipAderessOutput)="handlerClick($event)" ></app-inputfield>
+      </div>
+    </div>
+
+    <div>
+      <app-view-map [locationMap]="locationMap"></app-view-map>
+    </div>
+
+  </div>
+    
+
+    <div class="divLayoutFloat d-flex justify-content-center">
+      <div class="divInfo col-md-9 col-sm-12" >
+        <app-view-detail [dataLocation]="dataLocation"></app-view-detail>
+      </div>
+    </div>
+    
+</div>
+
+<router-outlet></router-outlet>

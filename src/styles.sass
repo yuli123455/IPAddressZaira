@@ -1,0 +1,43 @@
+@import "~leaflet/dist/leaflet.css"
+    
+$background-color: #fff
+$title-color: #fff
+$veryDarkGray: hsl(0, 0%, 17%)
+$darkGray: hsl(0, 0%, 59%)
+
+body
+    font-family: 'Rubik'
+
+.imageBackground
+    background-image: url("./assets/images/pattern-bg.png")
+    height: 230px
+
+    h1
+        color: $title-color
+        font-family: "Rubik"
+        font-size: 30px
+        font-weight: 500
+        padding-top: 1em
+
+.divLayout
+    margin-bottom: 5em
+
+.divLayoutFloat
+    position: absolute
+    top: 10em
+    left: 10em
+    right: 10em
+
+@media only screen and (max-width: 375px) 
+    .divLayoutFloat
+        position: absolute
+        top: 10em
+        left: 3em
+        right: 3em
+    
+    .imageBackground
+        h1
+            font-size: 25px
+
+    .divInfo
+        width: 100%
