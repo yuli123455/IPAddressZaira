@@ -13,7 +13,7 @@ export class LocationService {
 
   constructor(private http: HttpClient) {
     this.endpointPath = 'https://geo.ipify.org/api/v1?apiKey=at_4wxRT4rtMDsMzNYuxZJdQBCA7nSI7&';
-    this.endpointPathLocal = 'http://api.ipify.org/?format=json';
+    this.endpointPathLocal = 'https://api.ipify.org/?format=json';
    }
 
   public getCurrentIp(): Observable<any>
