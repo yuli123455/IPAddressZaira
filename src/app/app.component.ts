@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LocationService } from "./services/location.service";
-import { LocationMap } from "./services/location";
+import { Location, LocationMap } from "./services/location";
 
 @Component({
   selector: 'app-root',
@@ -11,12 +11,25 @@ export class AppComponent {
   
   locationMap: LocationMap
   dataLocation:any;
-  lat:any;
-  lng:any;
-
+  defaultIP : any;
+  
   constructor(private locationService : LocationService) { 
     this.dataLocation = undefined;
     this.locationMap = new LocationMap();
+    this.getCurrentIP();
+  }
+
+  getCurrentIP()
+  {
+    this.locationService.getCurrentIp()
+    .subscribe(data => {
+      let location = new Location();
+      location.isIpAddress = true;
+      location.valueInput = data.ip;
+      this.toGetLocation(location);
+    },
+    (err) => {
+    });
   }
 
   //Clear variables 
@@ -28,18 +41,23 @@ export class AppComponent {
   //Handler to get location
   handlerClick(ipAddressValue : any)
   {
-      const self = this;
       this.clearVariables();
-      let newLocation = new LocationMap()
-      this.locationService.getLocation(ipAddressValue)
-      .subscribe(data => {
-        this.dataLocation = data;
-        newLocation.lat = data.location.lat;
-        newLocation.lng = data.location.lng;
-        self.locationMap = newLocation;
-      },
-      (err) => {
-        self.locationMap = newLocation;
-      });
+      this.toGetLocation(ipAddressValue);
+  }
+
+  toGetLocation(ipAddressValue : any)
+  {
+    const self = this;
+    let newLocation = new LocationMap()
+    this.locationService.getLocation(ipAddressValue)
+    .subscribe(data => {
+      this.dataLocation = data;
+      newLocation.lat = data.location.lat;
+      newLocation.lng = data.location.lng;
+      self.locationMap = newLocation;
+    },
+    (err) => {
+      self.locationMap = newLocation;
+    });
   }
 }

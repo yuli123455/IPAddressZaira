@@ -14,6 +14,8 @@ export class InputfieldComponent implements OnInit {
 
   constructor(private locationService : LocationService) { 
     this.inputValue = '';
+  
+
   }
 
   ngOnInit(): void {
